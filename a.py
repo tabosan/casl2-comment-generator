@@ -269,14 +269,17 @@ def add_comment(line):
 
 
 def main():
-    filename = input("ファイルのディレクトリを入力してください: ")
+    print("例: input.cas")
+    infile = input("入力ファイルのディレクトリを入力してください: ")
+    print("例: output.cas")
+    outfile = input("出力ファイルのディレクトリを入力してください: ")
 
-    with open(filename, encoding="utf-8") as f:
+    with open(infile, encoding="utf-8") as f:
         lines = f.readlines()
 
     out = [add_comment(line) for line in lines]
 
-    with open("output.cas", "w", encoding="utf-8") as f:
+    with open(outfile, "w", encoding="utf-8") as f:
         f.write("\n".join(out))
 
 
